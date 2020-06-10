@@ -16,7 +16,6 @@ if(!require("ggplot2"))install.packages("ggplot2")
 if(!require("reshape2"))install.packages("reshape2")
 
 
-
 #Load the corrplot package
 library(corrplot)
 library(corrr)
@@ -39,7 +38,6 @@ cor_processing <- function(x){
   data_for_x <-t(mat_pearson)
   correlation_x <- cor(data_for_x )
   return(correlation_x)
-  
 }
 
 
@@ -63,7 +61,6 @@ corrplot(cor_statistics_EM_fertile, method = "circle",tl.col = "black",tl.cex=0.
 corrplot(cor_statistics_EM_infertile, method = "circle",tl.col = "black",tl.cex=0.9,number.cex = 1.8)
 
 
-
 #Part IV Use corrr package to visualize gene-gene co-expression patterns in a network
 
 
@@ -75,7 +72,6 @@ data_processing <- function(x){
   row.names(mat_cor)<- tt[,2]
   data_for_x <-t(mat_cor)
   return(data_for_x)
-  
 }
 
 #data_processing
@@ -95,7 +91,6 @@ data_for_Con_fertile %>% correlate() %>%  rearrange() %>% network_plot(min_cor =
 data_for_Con_infertile %>% correlate() %>%  rearrange() %>% network_plot(min_cor = 0.3)
 data_for_EM_fertile %>% correlate() %>%  rearrange() %>% network_plot(min_cor = 0.3)
 data_for_EM_infertile %>% correlate() %>%  rearrange() %>% network_plot(min_cor = 0.3)
-
 
 
 #Part V Paired Student's t-test
@@ -144,7 +139,6 @@ data2 <- Cor_reshape(temp_EM_infertile,temp_Con_infertile)
 data_Analyzing <- function(x){
   tt <- t.test(x$Case, x$Control, paired=TRUE)
   Pvalue <- tt[3]
-  
   return(Pvalue)
 }
 

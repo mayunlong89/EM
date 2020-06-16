@@ -12,7 +12,7 @@ import numpy
 #Read data 
 f1 = open("Geneset1.txt","r+")
 f2 = open("Geneset2.txt","r+")
-f3 = open("Geneset13.txt","r+")
+f3 = open("Geneset3.txt","r+")
 f4 = open("Geneset4.txt","r+")
 f5 = open("Geneset5.txt","r+")
 

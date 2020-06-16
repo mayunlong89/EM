@@ -76,9 +76,12 @@ Permut_analysis <- function(x,y,z){
 
 
 #100000 times permutation analysis for each gene set 
-results_geneset2 <- replicate(100000,Permut_analysis(Backgroud_geneset2,len_Sig_geneset2,Sig_geneset1))
-results_geneset3 <- replicate(100000,Permut_analysis(Background_geneset3,len_Sig_geneset3,Sig_geneset1))
-results_geneset4 <- replicate(100000,Permut_analysis(Background_geneset4,len_Sig_geneset4,Sig_geneset1))
+results_1 <- replicate(100000,Permut_analysis(Backgroud_geneset2,len_Sig_geneset2,Sig_geneset1))
+results_2 <- replicate(100000,Permut_analysis(Background_geneset3,len_Sig_geneset3,Sig_geneset1))
+results_3 <- replicate(100000,Permut_analysis(Background_geneset4,len_Sig_geneset4,Sig_geneset1))
+results_4 <- replicate(100000,Permut_analysis(Backgroud_geneset3,len_Sig_geneset3,Sig_geneset2))
+results_5 <- replicate(100000,Permut_analysis(Background_geneset4,len_Sig_geneset4,Sig_geneset2))
+results_6 <- replicate(100000,Permut_analysis(Background_geneset4,len_Sig_geneset4,Sig_geneset3))
 
 
 #Ploting function
@@ -99,9 +102,14 @@ Fig_random <- function(x,y,z){
 
 
 #Visulization for the results of permutation analysis
-Fig_random(results_geneset2,Sig_geneset2,Sig_geneset1)
-Fig_random(results_geneset3,Sig_geneset3,Sig_geneset1)
-Fig_random(results_geneset4,Sig_geneset4,Sig_geneset1)
+Fig_random(results_1,Sig_geneset2,Sig_geneset1)
+Fig_random(results_2,Sig_geneset3,Sig_geneset1)
+Fig_random(results_3,Sig_geneset4,Sig_geneset1)
+Fig_random(results_4,Sig_geneset3,Sig_geneset2)
+Fig_random(results_5,Sig_geneset4,Sig_geneset2)
+Fig_random(results_6,Sig_geneset4,Sig_geneset3)
+
+
 
 
 #End

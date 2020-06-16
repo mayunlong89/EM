@@ -24,8 +24,8 @@ Sig_2 <- read.table("geneset2.txt", header=T)
 Sig_geneset2 <- Sig_2$Gene_name
 
 #Read background genes of Dixon blood eQTL data
-Backgroud_2<- read.table("geneset2_all.txt", header=T)
-Backgroud_geneset2 <- Backgroud_2$Gene_name
+Background_2<- read.table("geneset2_all.txt", header=T)
+Background_geneset2 <- Background_2$Gene_name
 
 #3
 #Read significant genes from Geneset #3
@@ -33,8 +33,8 @@ Sig_3 <- read.table("geneset3.txt", header=T)
 Sig_geneset3 <- Sig_3$Gene_name
 
 #Read background genes of GTEx blood eQTL data
-Backgroud_3<- read.table("geneset3_all.txt", header=T)
-Backgroud_geneset3 <- Backgroud_3$Gene_name
+Background_3<- read.table("geneset3_all.txt", header=T)
+Background_geneset3 <- Background_3$Gene_name
 
 #4
 #Read significant genes from Geneset #4
@@ -50,7 +50,7 @@ Background_geneset4 <- Background_4$Gene_name
 #Calculate the numebr of genes in each gene set 
 len_Sig_geneset1 <- length(Sig_geneset1)
 len_Sig_geneset2 <- length(Sig_geneset2)
-len_Backgroud_geneset2 <- length(Backgroud_geneset2)
+len_Background_geneset2 <- length(Background_geneset2)
 len_Sig_geneset3 <- length(Sig_geneset3)
 len_Background_geneset3 <- length(Background_geneset3)
 len_Sig_geneset4 <- length(Sig_geneset4)
@@ -76,10 +76,10 @@ Permut_analysis <- function(x,y,z){
 
 
 #100000 times permutation analysis for each gene set 
-results_1 <- replicate(100000,Permut_analysis(Backgroud_geneset2,len_Sig_geneset2,Sig_geneset1))
+results_1 <- replicate(100000,Permut_analysis(Background_geneset2,len_Sig_geneset2,Sig_geneset1))
 results_2 <- replicate(100000,Permut_analysis(Background_geneset3,len_Sig_geneset3,Sig_geneset1))
 results_3 <- replicate(100000,Permut_analysis(Background_geneset4,len_Sig_geneset4,Sig_geneset1))
-results_4 <- replicate(100000,Permut_analysis(Backgroud_geneset3,len_Sig_geneset3,Sig_geneset2))
+results_4 <- replicate(100000,Permut_analysis(Background_geneset3,len_Sig_geneset3,Sig_geneset2))
 results_5 <- replicate(100000,Permut_analysis(Background_geneset4,len_Sig_geneset4,Sig_geneset2))
 results_6 <- replicate(100000,Permut_analysis(Background_geneset4,len_Sig_geneset4,Sig_geneset3))
 
@@ -108,7 +108,6 @@ Fig_random(results_3,Sig_geneset4,Sig_geneset1)
 Fig_random(results_4,Sig_geneset3,Sig_geneset2)
 Fig_random(results_5,Sig_geneset4,Sig_geneset2)
 Fig_random(results_6,Sig_geneset4,Sig_geneset3)
-
 
 
 
